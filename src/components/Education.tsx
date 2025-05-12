@@ -43,9 +43,9 @@ export default function Education() {
             icon: <FaUniversity className="text-3xl text-[var(--brown)] mb-2" />,
             college: "Allen Swami Vivekananda Jr. College, Koparkhairane, Navi Mumbai, Maharashtra",
             date: "July 2018 - Apr 2020",
-        }, 
+        },
         {
-            title: "Bachelor Of Computer Science",
+            title: "B.Sc. in Computer Science",
             icon: <FaGraduationCap className="text-3xl text-[var(--brown)] mb-2" />,
             college: "SIES (Nerul) College of Arts, Science and Commerce (Autonomous), Navi Mumbai, Maharashtra",
             date: "June 2022 - Apr 2025",
@@ -53,7 +53,7 @@ export default function Education() {
     ];
 
     return (
-        <div className="flex flex-col px-4 mt-5" ref={ref}>
+        <div className="flex flex-col max-w-7xl px-4 mt-5 mx-auto" ref={ref}>
             {/* Header */}
             <div className="relative mb-8 text-center">
                 <h1 className="text-4xl font-bold text-[var(--brown)]">Education</h1>
@@ -90,7 +90,7 @@ export default function Education() {
                                     </CardFooter>
                                 </Card>
                             </motion.div>
-                            
+
                             {idx < educationData.length - 1 && (
                                 <motion.div
                                     className="flex-shrink-0 flex items-center justify-center"
@@ -127,9 +127,9 @@ export default function Education() {
                                     </CardFooter>
                                 </Card>
                             </motion.div>
-                            
+
                             {idx < educationData.length - 1 && (
-                                <motion.div 
+                                <motion.div
                                     className="absolute left-1/2 transform -translate-x-1/2 -bottom-16 z-10"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={inView ? { opacity: 1, scale: 1 } : {}}

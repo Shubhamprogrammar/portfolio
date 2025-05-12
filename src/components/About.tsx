@@ -1,39 +1,31 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 
 export default function About() {
-    const ref = useRef(null);
-    const controls = useAnimation();
-    const [inView, setInView] = useState(false);
+    const underlineControls = useAnimation();
+    const imageControls = useAnimation();
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                    controls.start("visible");
-                }
-            },
-            { threshold: 0.5 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => {
-            if (ref.current) observer.unobserve(ref.current);
-        };
-    }, [controls]);
+        const timer = setTimeout(() => {
+            underlineControls.start({ width: "100%" });
+            imageControls.start({ opacity: 1, x: 0 });
+        }, 500); // 0.5s delay
+
+        return () => clearTimeout(timer);
+    }, [underlineControls, imageControls]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-6 py-16 md:px-16 md:mt-[-50px]" ref={ref}>
+        <div className="flex flex-col items-center justify-center min-h-screen px-6 py-16 md:px-16 md:mt-[-50px]">
             {/* Heading with animated underline */}
             <div className="relative mb-10">
                 <h1 className="text-4xl font-bold text-center text-[var(--brown)]">About Us</h1>
                 <motion.div
                     className="absolute left-0 bottom-[-5px] h-[3px] bg-[var(--brown)] rounded-full"
                     initial={{ width: 0 }}
-                    animate={inView ? { width: "100%" } : { width: 0 }}
+                    animate={underlineControls}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 />
             </div>
@@ -42,7 +34,7 @@ export default function About() {
             <div className="flex flex-col md:flex-row gap-16 md:gap-28 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    animate={imageControls}
                     transition={{ duration: 1 }}
                     className="rounded-lg border border-[var(--brown)] mt-7 shadow-lg rotate-[-5deg]"
                 >
@@ -54,8 +46,9 @@ export default function About() {
                         className="rounded-lg object-cover"
                     />
                 </motion.div>
+
                 <div className="space-y-5 md:space-y-6 mt-5 md:mt-0 text-center md:text-left">
-                    <h2 className="text-xxl font-semibold">Software Developer</h2>
+                    <h2 className="text-2xl font-semibold">Software Developer</h2>
                     <p className="text-[14px] max-w-2xl text-justify font-lato">
                         I started my journey in Computer Science in 2022 and have since gained expertise in various languages, technologies, and frameworks.
                     </p>
@@ -99,12 +92,12 @@ export default function About() {
                             <Link href="/assets/Shubham_CV.pdf" target="_blank" className="flex items-center">
                                 View Resume
                                 <motion.span
-                                className="ml-1"
-                                animate={{ y: [0, -3, 0] }}
-                                transition={{ repeat: Infinity, repeatDelay: 1.5, duration: 0.6 }}
-                            >
-                                📄
-                            </motion.span>
+                                    className="ml-1"
+                                    animate={{ y: [0, -3, 0] }}
+                                    transition={{ repeat: Infinity, repeatDelay: 1.5, duration: 0.6 }}
+                                >
+                                    📄
+                                </motion.span>
                             </Link>
                         </motion.button>
                     </div>
