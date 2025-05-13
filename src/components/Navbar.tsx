@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./Navlink";
@@ -9,6 +9,32 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [displayedName, setDisplayedName] = useState("");
+    const [displayedTitle, setDisplayedTitle] = useState("");
+    const fullName = "I\u0027m Shubham Maurya";
+    const fullTitle = "Software Developer";
+
+    // Character-by-character animation effect
+    useEffect(() => {
+        const nameInterval = setInterval(() => {
+            setDisplayedName((prev) => {
+                const next = fullName.slice(0, prev.length + 1);
+                return next;
+            });
+        }, 100);
+
+        const titleInterval = setInterval(() => {
+            setDisplayedTitle((prev) => {
+                const next = fullTitle.slice(0, prev.length + 1);
+                return next;
+            });
+        }, 100);
+
+        return () => {
+            clearInterval(nameInterval);
+            clearInterval(titleInterval);
+        };
+    }, []);
 
     const blurEffect = "backdrop-blur-[2px]";
     const bgColor = "bg-opacity-50 bg-[var(--nav-background)]";
@@ -25,16 +51,16 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <ul className="hidden md:flex space-x-6 lg:space-x-5 items-center pr-4 md:pr-6 lg:pr-6">
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/" variant="light">Home</NavLink>
+                        <NavLink href="/" >Home</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/about" variant="light">About</NavLink>
+                        <NavLink href="/about" >About</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/projects" variant="light">Project</NavLink>
+                        <NavLink href="/projects" >Project</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/assets/Shubham_CV.pdf" variant="light">Resume</NavLink>
+                        <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
                     </motion.li>
                 </ul>
 
@@ -64,7 +90,7 @@ export default function Navbar() {
             </div>
 
             {/* Hero Section with Text and Image */}
-            <div className="flex flex-col md:flex-row justify-between items-center px-6 py-6 md:py-12">
+            <div className=" flex flex-col md:flex-row justify-between items-center px-6 py-6 md:py-12">
                 {/* Text Content */}
                 <motion.div
                     className="flex flex-col space-y-3 md:w-1/2 md:ml-8 lg:ml-16"
@@ -72,9 +98,13 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    <h1 className="text-3xl md:text-4xl font-bold text-[var(--brown)]">I'm Shubham Maurya</h1>
-                    <h2 className="text-xl md:text-2xl font-semibold text-[var(--brown)] mb-2">Software Developer</h2>
-                    <p className="text-lg text-[var(--brown)]">I'm a software developer with a passion for creating innovative solutions.</p>
+                    <h1 className="text-3xl md:text-4xl font-bold text-[var(--brown)]">
+                        {displayedName}<span className="animate-pulse">|</span>
+                    </h1>
+                    <h2 className="text-xl md:text-2xl font-semibold text-[var(--brown)] mb-2">
+                        {displayedTitle}<span className={displayedName.length === fullName.length ? "animate-pulse" : "opacity-0"}>|</span>
+                    </h2>
+                    <p className="text-lg text-[var(--brown)]">I&apos;m a software developer with a passion for creating innovative solutions.</p>
                     <p className="text-lg text-[var(--brown)] max-w-md">Welcome to my portfolio!</p>
                     <div className="flex space-x-4 mt-2">
                         <motion.button
@@ -176,7 +206,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/" variant="light">Home</NavLink>
+                        <NavLink href="/" >Home</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"
@@ -189,7 +219,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/about" variant="light">About</NavLink>
+                        <NavLink href="/about" >About</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"
@@ -202,7 +232,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/projects" variant="light">Project</NavLink>
+                        <NavLink href="/projects" >Project</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"
@@ -215,7 +245,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/resume" variant="light">Resume</NavLink>
+                        <NavLink href="/resume" >Resume</NavLink>
                     </motion.li>
                     <div className="flex justify-center w-full">
                         <motion.hr

@@ -27,7 +27,7 @@ export default function Footer() {
               Specializing in modern frameworks and responsive design.
             </p>
             <div className="flex space-x-4 text-xl mt-4">
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" 
+              <a href="https://github.com/Shubhamprogrammar/" target="_blank" rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-white transition-colors duration-300">
                 <FaGithub />
               </a>
@@ -80,7 +80,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="hover:text-white transition-colors duration-300">
+                <Link href="/project" className="hover:text-white transition-colors duration-300">
                   Projects
                 </Link>
               </li>

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FaReact, FaNode, FaDatabase, FaJs, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiExpress, SiNextdotjs, SiTailwindcss, SiGit, SiGithub, SiPostman, SiMysql } from 'react-icons/si';
+import { SiTypescript, SiMongodb, SiExpress, SiNextdotjs, SiTailwindcss, SiGit, SiGithub, SiPostman } from 'react-icons/si';
 import { motion, useAnimation } from "framer-motion";
 
 export default function Skills() {
@@ -30,12 +30,15 @@ export default function Skills() {
             { threshold: 0.2 }
         );
 
-        if (ref.current) observer.observe(ref.current);
+        const currentRef = ref.current;
+
+        if (currentRef) observer.observe(currentRef);
 
         return () => {
-            if (ref.current) observer.unobserve(ref.current);
+            if (currentRef) observer.unobserve(currentRef);
         };
     }, [controls]);
+
 
     const frontendSkills = [
         { name: "React", icon: <FaReact className="text-blue-500 text-3xl mr-2" /> },
@@ -88,14 +91,14 @@ export default function Skills() {
     ];
 
     // Animation utility function
-    const getAnimationDelay = (index: any) => {
+    const getAnimationDelay = (index: number) => {
         return `${index * 100}ms`;
     };
 
     return (
         <div
             ref={ref}
-            className="flex flex-col w-[90%] sm:w-[90%] md:w-[85%] lg:max-w-5xl px-4 py-8 bg-gray-50 rounded-xl shadow-md mx-auto"
+            className="flex flex-col w-[90%] sm:w-[90%] md:w-[85%] lg:max-w-5xl px-4 py-5 mt-5 mb-5 bg-gray-50 rounded-xl shadow-md mx-auto"
         >
             <div className="relative mb-8 text-center">
                 <h1 className="text-4xl font-bold text-[var(--brown)]">Skills</h1>

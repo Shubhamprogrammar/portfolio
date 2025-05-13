@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import React, { useRef } from "react";
+import React, { useRef ,useState } from "react";
 import {
     Form,
     FormControl,
@@ -17,6 +17,7 @@ import { FaWhatsapp, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-
 import { motion, useInView } from "framer-motion";
 
 export default function Contact() {
+    const [status, setStatus] = useState<{ message: string; success: boolean } | null>(null);
     const form = useForm({
         defaultValues: {
             username: "",
@@ -27,9 +28,37 @@ export default function Contact() {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.2, once: true });
 
-    const onSubmit = (data: any) => {
-        console.log("Form submitted:", data);
-        // Handle form data submission (API call, email, etc.)
+    const onSubmit = async (data: { username: string; email: string; message: string }) => {
+        try {
+            // Set the status to loading while submitting the form
+            setStatus({ message: "Submitting your message...", success: false });
+            console.log("Form data:", data);
+            // Send the form data to the backend (ensure your API endpoint is correct)
+            const response = await fetch('/api/addFeedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.username,
+                    email: data.email,
+                    feedback: data.message,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                form.reset(); // Reset the form fields after successful submission
+                setStatus({ message: "Your message has been submitted successfully!", success: true });
+            } else {
+                setStatus({ message: result.message || "Something went wrong. Please try again.", success: false });
+            }
+
+        } catch (error) {
+            console.error("Error submitting feedback:", error);
+            setStatus({ message: "Error submitting your message. Please try again.", success: false });
+        }
     };
 
     return (
@@ -96,6 +125,12 @@ export default function Contact() {
                                 <Button type="submit" className="w-full bg-[var(--brown)] hover:bg-[var(--brown)]/90">Submit</Button>
                             </form>
                         </Form>
+                        {/* Display the status message after submission */}
+                        {status && (
+                            <div className={`mt-4 text-center ${status.success ? "text-green-600" : "text-red-600"}`}>
+                                <p>{status.message}</p>
+                            </div>
+                        )}
 
                         <hr className="my-6" />
 
@@ -120,13 +155,13 @@ export default function Contact() {
                         <div className="space-y-2">
                             <div className="flex flex-col">
                                 <h3 className="text-2xl font-bold text-[var(--brown)]">Shubham Maurya</h3>
-                                <p className="text-lg text-gray-600">Full Stack Developer</p>
+                                <p className="text-lg text-gray-600">Software Developer</p>
                             </div>
 
                             <div className="space-y-3 mt-6">
                                 <div className="flex items-center gap-3 text-gray-700">
                                     <FaEnvelope className="text-[var(--brown)]" />
-                                    <span>shubhammaurya@example.com</span>
+                                    <span>mauryashubham12349@gmail.com</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-700">
                                     <FaPhone className="text-[var(--brown)]" />
@@ -135,7 +170,7 @@ export default function Contact() {
                             </div>
 
                             <div className="mt-6 text-center">
-                                <p className="text-gray-600 italic">"Crafting elegant solutions to complex problems"</p>
+                                <p className="text-gray-600 italic">&quot;Crafting elegant solutions to complex problems&quot;</p>
                             </div>
                         </div>
                     </div>

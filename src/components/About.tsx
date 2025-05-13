@@ -53,10 +53,10 @@ export default function About() {
                         I started my journey in Computer Science in 2022 and have since gained expertise in various languages, technologies, and frameworks.
                     </p>
                     <p className="text-[14px] max-w-2xl text-justify font-lato">
-                        I have a strong foundation in Python and Java, and I am proficient in web development using HTML, CSS, and JavaScript. I’ve also worked with frameworks like React.js and Node.js to build dynamic web applications.
+                        I have a strong foundation in Python and Java, and I am proficient in web development using HTML, CSS, and JavaScript. I&apos;ve also worked with frameworks like React.js and Node.js to build dynamic web applications.
                     </p>
                     <p className="text-[14px] max-w-2xl text-justify font-lato">
-                        I have experience with version control systems like Git and GitHub, allowing me to collaborate effectively and manage code efficiently. I'm also familiar with database systems like MySQL and MongoDB.
+                        I have experience with version control systems like Git and GitHub, allowing me to collaborate effectively and manage code efficiently. I&apos;m also familiar with database systems like MySQL and MongoDB.
                     </p>
                     <ul className="list-inside text-lg grid grid-cols-1 md:grid-cols-3 gap-4">
                         <li className="flex items-center">🧩 Problem Solver</li>
