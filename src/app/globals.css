@@ -3,20 +3,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --nav-background: #f5f5f5b2;
-  --white: #ffffff;
-  --almost-white: #d9d9d9;
-  --blue: #009ded;
-  --orange: #d08875;
   --light-brown: #a38c77;
   --brown: #645443;
   --dark-brown: #433839;
-  --almost-black: #1e1e1e;
-  --black: #000000;
-  --logo:"Dancing Script", cursive;
+  --logo:"Dancing Script", cursive,sans-serif;
   --font-playfair: 'Playfair Display', sans-serif;
   --font-lato: 'Lato', sans-serif;
   --radius: 0.625rem;
