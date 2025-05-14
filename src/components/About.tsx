@@ -47,7 +47,7 @@ export default function About() {
                     />
                 </motion.div>
 
-                <div className="space-y-5 md:space-y-6 mt-5 md:mt-0 text-center md:text-left">
+                <div className="space-y-5 md:space-y-6 md:mt-0 text-center md:text-left">
                     <h2 className="text-2xl font-semibold">Software Developer</h2>
                     <p className="text-[14px] max-w-2xl text-justify font-lato">
                         I started my journey in Computer Science in 2022 and have since gained expertise in various languages, technologies, and frameworks.
