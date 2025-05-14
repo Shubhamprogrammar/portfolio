@@ -56,7 +56,7 @@ export default function Navbar() {
                         <NavLink href="/about" >About</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/projects" >Project</NavLink>
+                        <NavLink href="/project" >Project</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                         <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
@@ -234,7 +234,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/projects" >Project</NavLink>
+                        <NavLink href="/project" >Project</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"
@@ -247,7 +247,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/resume" >Resume</NavLink>
+                        <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
                     </motion.li>
                     <div className="flex justify-center w-full">
                         <motion.hr
