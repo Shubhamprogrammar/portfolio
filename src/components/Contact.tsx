@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { FaWhatsapp, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaInstagram, FaEnvelope, FaPhone, FaBriefcase } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
 export default function Contact() {
@@ -77,6 +77,14 @@ export default function Contact() {
 
                     {/* Left Column - Form and Social Icons */}
                     <div className="w-full p-6 lg:w-3/5">
+                        {/* Availability Message */}
+                        <div className="lg:hidden mb-6 p-4 bg-[var(--brown)]/10 rounded-lg border border-[var(--brown)]/20">
+                            <div className="flex items-center gap-2 mb-2">
+                                <FaBriefcase className="text-[var(--brown)]" />
+                                <h3 className="font-medium text-[var(--brown)]">Work Availability</h3>
+                            </div>
+                            <p className="text-gray-700">I am open to full-time work and actively seeking job opportunities, particularly those that involves ambitious or large-scale projects. Let's connect and bring your ideas to life!</p>
+                        </div>
 
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -171,6 +179,16 @@ export default function Contact() {
 
                             <div className="mt-6 text-center">
                                 <p className="text-gray-600 italic">&quot;Crafting elegant solutions to complex problems&quot;</p>
+                            </div>
+                            
+                            {/* Work Availability for desktop view */}
+                            <div className="mt-6 p-4 bg-[var(--brown)]/10 rounded-lg border border-[var(--brown)]/20">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <FaBriefcase className="text-[var(--brown)]" />
+                                    <h3 className="font-medium text-[var(--brown)]">Work Availability</h3>
+                                </div>
+                                <p className="text-gray-700">I am open to full-time work and actively seeking job opportunities, particularly those that involves ambitious or large-scale projects.</p>
+                                <p className="text-gray-700 mt-2 font-medium">Let's connect and bring your ideas to life!</p>
                             </div>
                         </div>
                     </div>

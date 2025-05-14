@@ -36,7 +36,7 @@ export default function About() {
                     initial={{ opacity: 0, x: -50 }}
                     animate={imageControls}
                     transition={{ duration: 1 }}
-                    className="rounded-lg border border-[var(--brown)] mt-7 shadow-lg rotate-[-5deg]"
+                    className="rounded-lg border border-[var(--brown)] mt-7 shadow-lg lg:rotate-[-5deg]"
                 >
                     <Image
                         src="/assets/shubham.jpg"

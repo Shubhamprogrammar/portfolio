@@ -37,10 +37,9 @@ export default function Navbar() {
     }, []);
 
     const blurEffect = "backdrop-blur-[2px]";
-    const bgColor = "bg-opacity-50 bg-[var(--nav-background)]";
 
     return (
-        <nav className={`w-full top-0 left-0 z-50 ${blurEffect} ${bgColor}`} tabIndex={0} onBlur={() => setIsOpen(false)}>
+        <nav className={`w-full top-0 left-0 z-50 ${blurEffect} bg-opacity-50 bg-[var(--nav-background)]`} tabIndex={0} onBlur={() => setIsOpen(false)}>
             <div className="flex items-center justify-between px-4 py-2 h-20 transition-all ease-in-out duration-500">
                 <Link href="/" className="flex-shrink-0 relative left-2 md:left-5">
                     <div className="relative font-logo text-5xl text-[var(--brown)] hover:text-[var(--dark-brown)] transition-all duration-300 transform hover:scale-105">
@@ -156,18 +155,21 @@ export default function Navbar() {
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <Image
-                        src='/assets/shubham.jpg'
+                        src='/assets/shaan.jpg'
                         alt='Shubham'
                         width={250}
                         height={250}
-                        className="rounded-lg shadow-lg transform hover:scale-110 transition-all duration-300"
+                        className="rounded-lg shadow-lg transform hover:scale-110 transition-all duration-300 "
+                        style={{
+                            animation: "float 4s ease-in-out infinite"
+                        }}
                     />
                 </motion.div>
             </div>
 
             {/* Mobile Navigation with smooth animation */}
             <motion.div
-                className={`absolute left-0 w-full ${blurEffect} ${bgColor} md:hidden`}
+                className={`absolute left-0 w-full bg-[#CFE5FF80] ${blurEffect} bg-opacity-50 md:hidden`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -186,7 +188,7 @@ export default function Navbar() {
                     }}
                     initial={{ height: "20px" }}
                     animate={{
-                        height: isOpen ? "280px" : "0px",
+                        height: isOpen ? "220px" : "0px",
                         paddingTop: isOpen ? "10px" : 0
                     }}
                     transition={{

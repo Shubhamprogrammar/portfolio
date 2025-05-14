@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const projects = [
   {
@@ -21,6 +22,7 @@ const projects = [
       "A modern and responsive website for a premium coffee shop, offering a seamless browsing experience for customers.",
     tech: ["HTML", "Tailwind CSS", "TypeScript", "CT3A", "React.js"],
     image: "/assets/deja.png",
+    link:"https://dejabrew-website.vercel.app/"
   },
   {
     title: "Sarvavyapi - The Real Estate",
@@ -36,6 +38,7 @@ const projects = [
       "MongoDB",
     ],
     image: "/assets/sarvavyapi.png",
+    link:"https://github.com/Shubhamprogrammar/sarvavyapi-frontend"
   },
   {
     title: "Open Your Hearts",
@@ -51,6 +54,7 @@ const projects = [
       "MongoDB",
     ],
     image: "/assets/hearts.png",
+    link:"https://openyourhearts.vercel.app/",
   },
   {
     title: "NewsApp",
@@ -58,6 +62,7 @@ const projects = [
       "A dynamic news application that fetches the latest headlines in real-time from NewsAPI with category filters.",
     tech: ["React.js", "NewsAPI", "HTML", "CSS3", "Bootstrap"],
     image: "/assets/news.png",
+    link:"https://github.com/Shubhamprogrammar/newsapp",
   },
   {
     title: "TextUtils",
@@ -65,6 +70,7 @@ const projects = [
       "A utility web app for performing common text manipulations like case conversion, word counting, and more.",
     tech: ["React.js", "HTML", "CSS3", "Bootstrap"],
     image: "/assets/textutils.png",
+    link:"https://github.com/Shubhamprogrammar/textutils",
   },
 ];
 
@@ -143,7 +149,7 @@ export default function Projects() {
                 </CardContent>
                 <CardFooter className="p-0">
                   <Button className="mt-2 bg-[var(--brown)] hover:bg-[var(--dark-brown)] transition">
-                    Visit Project
+                   <Link href={project.link} target="_blank"> Visit Project</Link>
                   </Button>
                 </CardFooter>
               </div>
