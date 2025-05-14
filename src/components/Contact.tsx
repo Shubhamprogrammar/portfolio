@@ -83,7 +83,7 @@ export default function Contact() {
                                 <FaBriefcase className="text-[var(--brown)]" />
                                 <h3 className="font-medium text-[var(--brown)]">Work Availability</h3>
                             </div>
-                            <p className="text-gray-700">I am open to full-time work and actively seeking job opportunities, particularly those that involves ambitious or large-scale projects. Let's connect and bring your ideas to life!</p>
+                            <p className="text-gray-700">I am open to full-time work and actively seeking job opportunities, particularly those that involves ambitious or large-scale projects. Let&apos;s connect and bring your ideas to life!</p>
                         </div>
 
                         <Form {...form}>
@@ -188,7 +188,7 @@ export default function Contact() {
                                     <h3 className="font-medium text-[var(--brown)]">Work Availability</h3>
                                 </div>
                                 <p className="text-gray-700">I am open to full-time work and actively seeking job opportunities, particularly those that involves ambitious or large-scale projects.</p>
-                                <p className="text-gray-700 mt-2 font-medium">Let's connect and bring your ideas to life!</p>
+                                <p className="text-gray-700 mt-2 font-medium">Let&apos;s connect and bring your ideas to life!</p>
                             </div>
                         </div>
                     </div>
