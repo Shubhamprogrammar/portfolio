@@ -80,7 +80,7 @@ export default function Projects() {
 
   return (
     <section
-      className="flex flex-col items-center justify-center min-h-screen px-4 py-16 space-y-12"
+      className="flex flex-col items-center justify-center px-4 py-16 space-y-12"
       ref={ref}
       id="projects-section"
     >

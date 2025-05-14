@@ -18,10 +18,10 @@ export default function About() {
     }, [underlineControls, imageControls]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-6 py-16 md:px-16 md:mt-[-50px]">
+        <div className="flex flex-col items-center justify-center px-6 py-16 md:px-16 md:mt-[-50px]">
             {/* Heading with animated underline */}
             <div className="relative mb-10">
-                <h1 className="text-4xl font-bold text-center text-[var(--brown)]">About Us</h1>
+                <h1 className="text-4xl font-bold text-center text-[var(--brown)]">About Me</h1>
                 <motion.div
                     className="absolute left-0 bottom-[-5px] h-[3px] bg-[var(--brown)] rounded-full"
                     initial={{ width: 0 }}
