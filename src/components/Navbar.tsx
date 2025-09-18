@@ -144,6 +144,14 @@ export default function Navbar() {
                                 ></motion.i>
                             </Link>
                         </li>
+                        <li>
+                            <Link href="https://www.fiverr.com/pyexpertise" target="_blank" rel="noopener noreferrer">
+                                <motion.i
+                                    className="fas fa-globe text-[var(--brown)] text-2xl hover:text-3xl transition-all duration-300"
+                                    whileHover={{ scale: 1.2 }} 
+                                ></motion.i>
+                            </Link>
+                        </li>
                     </motion.ul>
                 </motion.div>
 

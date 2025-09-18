@@ -38,7 +38,7 @@ const projects = [
       "MongoDB",
     ],
     image: "/assets/sarvavyapi.png",
-    link:"https://github.com/Shubhamprogrammar/sarvavyapi-frontend"
+    link:"https://sarvavyapi.vercel.app/"
   },
   {
     title: "Open Your Hearts",

@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { FaWhatsapp, FaLinkedin, FaInstagram, FaEnvelope, FaPhone, FaBriefcase } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin, FaInstagram, FaEnvelope, FaPhone, FaBriefcase, FaGlobe } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
 export default function Contact() {
@@ -151,6 +151,9 @@ export default function Contact() {
                             </a>
                             <a href="https://www.instagram.com/maurya_shubham29/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
                                 <FaInstagram className="text-[#E4405F]" />
+                            </a>
+                            <a href="https://www.fiverr.com/pyexpertise/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
+                                <FaGlobe className="text-[#1DBF73]" />
                             </a>
                         </div>
                     </div>
