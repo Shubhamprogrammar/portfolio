@@ -130,7 +130,7 @@ export default function Contact() {
                                     )}
                                 />
 
-                                <Button type="submit" className="w-full bg-[var(--brown)] hover:bg-[var(--brown)]/90">Submit</Button>
+                                <Button type="submit" className="w-full bg-[var(--brown)] hover:bg-[var(--brown)]/90 cursor-pointer">Submit</Button>
                             </form>
                         </Form>
                         {/* Display the status message after submission */}
