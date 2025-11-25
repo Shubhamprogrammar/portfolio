@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FaReact, FaNode, FaDatabase, FaJs, FaHtml5, FaCss3 } from 'react-icons/fa';
 import { SiTypescript, SiMongodb, SiExpress, SiNextdotjs, SiTailwindcss, SiGit, SiGithub, SiPostman } from 'react-icons/si';
 import { motion, useAnimation } from "framer-motion";
+import { FaSpider } from "react-icons/fa6";
 
 export default function Skills() {
     const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,6 @@ export default function Skills() {
 
     const frontendSkills = [
         { name: "React", icon: <FaReact className="text-blue-500 text-3xl mr-2" /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-gray-800 text-3xl mr-2" /> },
         { name: "JavaScript", icon: <FaJs className="text-yellow-500 text-3xl mr-2" /> },
         { name: "TypeScript", icon: <SiTypescript className="text-blue-600 text-3xl mr-2" /> },
         { name: "HTML5", icon: <FaHtml5 className="text-orange-600 text-3xl mr-2" /> },
@@ -73,6 +73,7 @@ export default function Skills() {
                 height={25}
             />
         },
+        { name: "Web Scraping", icon: <FaSpider className="text-purple-600 text-3xl mr-2" /> },
     ];
     const tools = [
         {
@@ -88,6 +89,14 @@ export default function Skills() {
         { name: "Git", icon: <SiGit className="text-orange-600 text-3xl mr-2" /> },
         { name: "GitHub", icon: <SiGithub className="text-black text-3xl mr-2" /> },
         { name: "Postman", icon: <SiPostman className="text-orange-500 text-3xl mr-2" /> },
+         {
+            name: "Power BI", icon: <Image
+                src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.2.0/powerbi.svg"
+                alt="Power BI"
+                width={35}
+                height={25}
+            />
+        },
     ];
 
     // Animation utility function
@@ -146,7 +155,7 @@ export default function Skills() {
                     >
                         <div className="flex flex-col items-center">
                             <div className="mb-2">{icon}</div>
-                            <span className="text-lg font-medium text-gray-700">{name}</span>
+                            <span className="text-lg font-medium text-gray-700 text-center">{name}</span>
                         </div>
                     </div>
                 ))}

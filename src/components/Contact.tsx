@@ -149,7 +149,7 @@ export default function Contact() {
                             <a href="https://www.linkedin.com/in/shubham-maurya-9932a3268/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
                                 <FaLinkedin className="text-[#0077B5]" />
                             </a>
-                            <a href="https://www.instagram.com/maurya_shubham29/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
+                            <a href="https://www.instagram.com/hey_shubham29/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
                                 <FaInstagram className="text-[#E4405F]" />
                             </a>
                             <a href="https://www.fiverr.com/pyexpertise/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
