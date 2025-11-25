@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FaReact, FaNode, FaDatabase, FaJs, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiExpress, SiNextdotjs, SiTailwindcss, SiGit, SiGithub, SiPostman } from 'react-icons/si';
+import { SiTypescript, SiMongodb, SiExpress, SiTailwindcss, SiGit, SiGithub, SiPostman } from 'react-icons/si';
 import { motion, useAnimation } from "framer-motion";
 import { FaSpider } from "react-icons/fa6";
 
