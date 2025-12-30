@@ -10,9 +10,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [displayedName, setDisplayedName] = useState("");
-    const [displayedTitle, setDisplayedTitle] = useState("");
     const fullName = "I\u0027m Shubham Maurya";
-    const fullTitle = "Software Developer";
+    const titles = [
+        "Software Developer",
+        "Full Stack Developer",
+        "Web Developer"
+    ];
+
+    const [displayedTitle, setDisplayedTitle] = useState("");
+    const [titleIndex, setTitleIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     // Character-by-character animation effect
     useEffect(() => {
@@ -23,26 +31,54 @@ export default function Navbar() {
             });
         }, 100);
 
-        const titleInterval = setInterval(() => {
-            setDisplayedTitle((prev) => {
-                const next = fullTitle.slice(0, prev.length + 1);
-                return next;
-            });
-        }, 100);
-
         return () => {
             clearInterval(nameInterval);
-            clearInterval(titleInterval);
         };
     }, []);
 
     const blurEffect = "backdrop-blur-[2px]";
 
+    useEffect(() => {
+        const currentTitle = titles[titleIndex];
+
+        let timeout: ReturnType<typeof setTimeout>;
+
+        if (!isDeleting && charIndex < currentTitle.length) {
+            // Typing
+            timeout = setTimeout(() => {
+                setDisplayedTitle(currentTitle.substring(0, charIndex + 1));
+                setCharIndex((prev) => prev + 1);
+            }, 100);
+        }
+        else if (!isDeleting && charIndex === currentTitle.length) {
+            // Pause after typing
+            timeout = setTimeout(() => {
+                setIsDeleting(true);
+            }, 1200);
+        }
+        else if (isDeleting && charIndex > 0) {
+            // Erasing
+            timeout = setTimeout(() => {
+                setDisplayedTitle(currentTitle.substring(0, charIndex - 1));
+                setCharIndex((prev) => prev - 1);
+            }, 50);
+        }
+        else if (isDeleting && charIndex === 0) {
+            // Move to next title WITHOUT flicker
+            setIsDeleting(false);
+            setTitleIndex((prev) => (prev + 1) % titles.length);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [charIndex, isDeleting, titleIndex]);
+
+
+
     return (
         <nav className={`w-full top-0 left-0 z-50 ${blurEffect} bg-opacity-50 bg-[var(--nav-background)]`} tabIndex={0} onBlur={() => setIsOpen(false)}>
             <div className="flex items-center justify-between px-4 py-2 h-20 transition-all ease-in-out duration-500">
                 <Link href="/" className="flex-shrink-0 relative left-2 md:left-5">
-                    <div className="relative font-logo text-5xl text-[var(--brown)] hover:text-[var(--dark-brown)] transition-all duration-300 transform hover:scale-105">
+                    <div className="relative text-5xl text-[var(--brown)] font-semibold hover:text-[var(--dark-brown)] transition-all duration-300 transform hover:scale-105">
                         Shubham
                     </div>
                 </Link>
@@ -53,10 +89,10 @@ export default function Navbar() {
                         <NavLink href="/" >Home</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/about" >About</NavLink>
+                        <NavLink href="#about" >About</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/project" >Project</NavLink>
+                        <NavLink href="#project" >Project</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                         <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
@@ -101,8 +137,10 @@ export default function Navbar() {
                         {displayedName}<span className="animate-pulse">|</span>
                     </h1>
                     <h2 className="text-xl md:text-2xl font-semibold text-[var(--brown)] mb-2">
-                        {displayedTitle}<span className={displayedName.length === fullName.length ? "animate-pulse" : "opacity-0"}>|</span>
+                        {displayedTitle}
+                        <span className="animate-pulse">|</span>
                     </h2>
+
                     <p className="text-lg text-[var(--brown)]">I&apos;m a software developer with a passion for creating innovative solutions.</p>
                     <p className="text-lg text-[var(--brown)] max-w-md">Welcome to my portfolio!</p>
                     <div className="flex space-x-4 mt-2">
@@ -110,20 +148,20 @@ export default function Navbar() {
                             whileHover={{ scale: 1.05 }}
                             className="px-4 py-1.5 bg-[var(--brown)] text-white text-sm rounded-md shadow-md hover:bg-[var(--dark-brown)] transition duration-300"
                         >
-                            <Link href="/project">View My Work</Link>
+                            <Link href="#project">View My Work</Link>
                         </motion.button>
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             className="px-4 py-1.5 bg-[var(--brown)] text-white text-sm rounded-md shadow-md hover:bg-[var(--dark-brown)] transition duration-300"
                         >
-                            <Link href="/contact">Contact Me</Link>
+                            <Link href="#contact">Contact Me</Link>
                         </motion.button>
                     </div>
                     <motion.ul className="flex space-x-4 mt-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
                         <li>
                             <Link href="https://github.com/Shubhamprogrammar/" target="_blank" rel="noopener noreferrer">
                                 <motion.i
-                                    className="fab fa-github text-[var(--brown)] text-2xl hover:text-3xl transition-all duration-300"
+                                    className="fab fa-github text-[var(--brown)] text-2xl hover:text-gray-600 transition-all duration-300"
                                     whileHover={{ scale: 1.2 }}
                                 ></motion.i>
                             </Link>
@@ -131,7 +169,7 @@ export default function Navbar() {
                         <li>
                             <Link href="https://www.linkedin.com/in/shubham-maurya-9932a3268/" target="_blank" rel="noopener noreferrer">
                                 <motion.i
-                                    className="fab fa-linkedin text-[var(--brown)] text-2xl hover:text-3xl transition-all duration-300"
+                                    className="fab fa-linkedin text-[var(--brown)] text-2xl hover:text-gray-600 transition-all duration-300"
                                     whileHover={{ scale: 1.2 }}
                                 ></motion.i>
                             </Link>
@@ -139,16 +177,8 @@ export default function Navbar() {
                         <li>
                             <Link href="https://www.hackerrank.com/profile/mauryashubham121" target="_blank" rel="noopener noreferrer">
                                 <motion.i
-                                    className="fab fa-hackerrank text-[var(--brown)] text-2xl hover:text-3xl transition-all duration-300"
+                                    className="fab fa-hackerrank text-[var(--brown)] text-2xl hover:text-gray-600 transition-all duration-300"
                                     whileHover={{ scale: 1.2 }}
-                                ></motion.i>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="https://www.fiverr.com/pyexpertise" target="_blank" rel="noopener noreferrer">
-                                <motion.i
-                                    className="fas fa-globe text-[var(--brown)] text-2xl hover:text-3xl transition-all duration-300"
-                                    whileHover={{ scale: 1.2 }} 
                                 ></motion.i>
                             </Link>
                         </li>
@@ -229,7 +259,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/about" >About</NavLink>
+                        <NavLink href="#about" >About</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"
@@ -242,7 +272,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/project" >Project</NavLink>
+                        <NavLink href="#project" >Project</NavLink>
                     </motion.li>
                     <motion.li
                         className="px-3 text-xl"

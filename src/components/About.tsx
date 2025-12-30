@@ -74,7 +74,7 @@ export default function About() {
                             className="px-4 py-3 bg-[var(--brown)] text-white text-sm rounded-md shadow-lg hover:bg-[var(--dark-brown)] transition duration-300 font-lato"
                             whileHover={{ scale: 1.05 }}
                         >
-                            <Link href="/contact" className="flex items-center">
+                            <Link href="#contact" className="flex items-center">
                                 Get In Touch
                                 <motion.span
                                     animate={{ x: [0, 8, 0] }}

@@ -152,9 +152,6 @@ export default function Contact() {
                             <a href="https://www.instagram.com/hey_shubham29/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
                                 <FaInstagram className="text-[#E4405F]" />
                             </a>
-                            <a href="https://www.fiverr.com/pyexpertise/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
-                                <FaGlobe className="text-[#1DBF73]" />
-                            </a>
                         </div>
                     </div>
 

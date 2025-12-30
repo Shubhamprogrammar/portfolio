@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FaReact, FaNode, FaDatabase, FaJs, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiExpress, SiTailwindcss, SiGit, SiGithub, SiPostman } from 'react-icons/si';
+import { SiTypescript, SiMongodb, SiExpress, SiTailwindcss, SiGit, SiGithub, SiPostman, SiVercel } from 'react-icons/si';
 import { motion, useAnimation } from "framer-motion";
 import { FaSpider } from "react-icons/fa6";
 
@@ -44,7 +44,6 @@ export default function Skills() {
     const frontendSkills = [
         { name: "React", icon: <FaReact className="text-blue-500 text-3xl mr-2" /> },
         { name: "JavaScript", icon: <FaJs className="text-yellow-500 text-3xl mr-2" /> },
-        { name: "TypeScript", icon: <SiTypescript className="text-blue-600 text-3xl mr-2" /> },
         { name: "HTML5", icon: <FaHtml5 className="text-orange-600 text-3xl mr-2" /> },
         { name: "CSS3", icon: <FaCss3 className="text-blue-400 text-3xl mr-2" /> },
         { name: "Tailwind", icon: <SiTailwindcss className="text-blue-500 text-3xl mr-2" /> },
@@ -73,7 +72,6 @@ export default function Skills() {
                 height={25}
             />
         },
-        { name: "Web Scraping", icon: <FaSpider className="text-purple-600 text-3xl mr-2" /> },
     ];
     const tools = [
         {
@@ -88,15 +86,8 @@ export default function Skills() {
         },
         { name: "Git", icon: <SiGit className="text-orange-600 text-3xl mr-2" /> },
         { name: "GitHub", icon: <SiGithub className="text-black text-3xl mr-2" /> },
-        { name: "Postman", icon: <SiPostman className="text-orange-500 text-3xl mr-2" /> },
-         {
-            name: "Power BI", icon: <Image
-                src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.2.0/powerbi.svg"
-                alt="Power BI"
-                width={35}
-                height={25}
-            />
-        },
+        { name: "Postman", icon: <SiPostman className="text-orange-500 text-3xl mr-2" /> },       
+  { name: "Vercel", icon: <SiVercel className="text-black text-3xl mr-2" /> },
     ];
 
     // Animation utility function

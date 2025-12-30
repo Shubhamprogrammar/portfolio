@@ -10,11 +10,19 @@ export default function Home() {
   return (
     <div className="bg-[#CFE5FF]">
       <Navbar />
+      <section id="about" className="scroll-smooth"> 
       <About />
+      </section>
       <Education />
+      <section id="project" className="scroll-smooth"> 
       <Projects />
+      </section>
+      <section id="skills" className="scroll-smooth">
       <Skills />
+      </section>
+      <section id="contact" className="scroll-smooth">
       <Contact />
+      </section>
       <Footer />
     </div>
   );

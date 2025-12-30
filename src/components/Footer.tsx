@@ -1,16 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import { 
-  FaGithub, 
-  FaLinkedinIn, 
-  FaInstagram, 
-  FaEnvelope, 
-  FaPhone, 
-  FaMapMarkerAlt, 
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
   FaWhatsapp,
   FaCode,
   FaRegFileAlt,
-  FaRegLightbulb
+  FaRegLightbulb,
+  FaHackerrank
 } from 'react-icons/fa';
 
 export default function Footer() {
@@ -23,26 +24,35 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4 text-[var(--brown)]">Shubham Maurya</h3>
             <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-              Software Developer passionate about creating elegant, user-focused web solutions. 
+              Software Developer passionate about creating elegant, user-focused web solutions.
               Specializing in modern frameworks and responsive design.
             </p>
             <div className="flex space-x-4 text-xl mt-4">
-              <a href="https://github.com/Shubhamprogrammar/" target="_blank" rel="noopener noreferrer" 
+              <a href="https://github.com/Shubhamprogrammar/" target="_blank" rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-300">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/shubham-maurya-9932a3268/" target="_blank" rel="noopener noreferrer" 
+              <a href="https://www.linkedin.com/in/shubham-maurya-9932a3268/" target="_blank" rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#0077B5] transition-colors duration-300">
                 <FaLinkedinIn />
               </a>
-              <a href="https://www.instagram.com/maurya_shubham29/" target="_blank" rel="noopener noreferrer" 
+              <a
+                href="https://www.hackerrank.com/profile/mauryashubham121"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#2EC866] transition-colors duration-300"
+              >
+                <FaHackerrank />
+              </a>
+              <a href="https://www.instagram.com/hey_shubham29/" target="_blank" rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#E4405F] transition-colors duration-300">
                 <FaInstagram />
               </a>
-              <a href="https://wa.me/+918850093749" target="_blank" rel="noopener noreferrer" 
+              <a href="https://wa.me/+918850093749" target="_blank" rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#25D366] transition-colors duration-300">
                 <FaWhatsapp />
               </a>
+              
             </div>
           </div>
 
@@ -124,8 +134,8 @@ export default function Footer() {
               © {new Date().getFullYear()} Shubham Maurya. All rights reserved.
             </p>
             <div className="text-sm text-gray-400">
-              Designed with 
-              <span className="text-red-500 mx-1">❤</span> 
+              Designed with
+              <span className="text-red-500 mx-1">❤</span>
               by Shubham Maurya
             </div>
           </div>

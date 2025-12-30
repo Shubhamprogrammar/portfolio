@@ -50,6 +50,10 @@
   font-family: var(--logo);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .font-dela {
   font-family: var(--font-playfair);
 }
