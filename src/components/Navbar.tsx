@@ -285,7 +285,7 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.1 }}
                     >
-                        <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
+                        <NavLink href="/assets/Shubham CV.pdf" >Resume</NavLink>
                     </motion.li>
                     <div className="flex justify-center w-full">
                         <motion.hr

@@ -89,7 +89,7 @@ export default function About() {
                             className="px-6 py-3 bg-[var(--brown)] text-white text-sm rounded-md shadow-lg hover:bg-[var(--dark-brown)] transition duration-300 font-lato"
                             whileHover={{ scale: 1.05 }}
                         >
-                            <Link href="/assets/Shubham_CV.pdf" target="_blank" className="flex items-center">
+                            <Link href="/assets/Shubham CV.pdf" target="_blank" className="flex items-center">
                                 View Resume
                                 <motion.span
                                     className="ml-1"
