@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FaReact, FaNode, FaDatabase, FaJs, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiExpress, SiTailwindcss, SiGit, SiGithub, SiPostman, SiVercel } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiTailwindcss, SiGit, SiGithub, SiPostman, SiVercel } from 'react-icons/si';
 import { motion, useAnimation } from "framer-motion";
-import { FaSpider } from "react-icons/fa6";
 
 export default function Skills() {
     const [isVisible, setIsVisible] = useState(false);
