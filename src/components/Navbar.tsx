@@ -95,7 +95,7 @@ export default function Navbar() {
                         <NavLink href="#project" >Project</NavLink>
                     </motion.li>
                     <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <NavLink href="/assets/Shubham_CV.pdf" >Resume</NavLink>
+                        <NavLink href="/assets/Shubham CV.pdf" >Resume</NavLink>
                     </motion.li>
                 </ul>
 
